@@ -8,7 +8,7 @@ To use this application you only need to have java installed. [Install here](htt
 
 Go to the main folder and find the file named **CurrencyConverter.jar**. Execute it by double clicking on it and the application will open.
 
-Or you can also directly download the executable [by clicking here](github.com/MaxC0d3/alura-challenge-currency-converter/raw/main/CurrencyConverter.jar)
+Or you can also directly download the executable [by clicking here](https://github.com/MaxC0d3/alura-challenge-currency-converter/raw/main/CurrencyConverter.jar)
 
 Another alternative is to run the main package, like this:
 
