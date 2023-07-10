@@ -27,21 +27,6 @@ public class ContainerCurrency extends JFrame {
 	private JLabel lblNewLabel_12;
 	private double resultOperations;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ContainerCurrency frame = new ContainerCurrency();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
@@ -104,8 +89,7 @@ public class ContainerCurrency extends JFrame {
 		JButton btnConvert = new JButton("Convertir");
 		btnConvert.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				result.append("");
+				result.setText("");
 				
 				int indexOfValue = valueCurrency1.getSelectedIndex();
 				
@@ -113,7 +97,7 @@ public class ContainerCurrency extends JFrame {
 				Currency.setValue(fieldCurrencyValue.getText());
 				resultOperations = Currency.convertCurrency(indexOfValue);
 				
-				result.append(String.valueOf(resultOperations));
+				result.setText(String.valueOf(resultOperations));
 			}
 		});
 		btnConvert.setBounds(44, 164, 223, 23);

@@ -2,8 +2,8 @@ package co.com.currencyConverter.utils;
 
 public class currencyConverterOperations {
 	
-	private  int result;
-	private  double value;
+	private int result;
+	private double value;
 
 	
 	public void setValue(String Value) {
@@ -12,25 +12,40 @@ public class currencyConverterOperations {
 	
 	
 	public int convertCurrency(int selected) {
+		
+		System.out.println(selected);
+			
+		result = 0;
+		
 		switch (selected) {
 			case 0:
-			case 5:
-				result = (int) ((double) value * 4.162);
+				result = (int) ((double) value * 0.00024);
 				break;
 			case 1:
-			case 6:
-				result = (int) ((double) value * 4.579);
+				result = (int) ((double) value * 0.00022);
 				break;
 			case 2:
-			case 7:
-				result = (int) ((double) value * 5353.18);
+				result = (int) ((double) value * 0.00019);
 				break;
 			case 3:
-			case 8:
-				result = (int) ((double) value * 29.45);
+				result = (int) ((double) value * 0.034);
 				break;
 			case 4:
-			case 9:
+				result = (int) ((double) value * 0.31);
+				break;
+			case 5: 
+				result = (int) (value * 4160);
+				break;
+			case 6:
+				result = (int) ((double) value * 4576);
+				break;
+			case 7: 
+				result = (int) ((double) value * 5.349);
+				break;
+			case 8:
+				result = (int) ((double) value * 29.43);
+				break;
+			case 9: 
 				result = (int) ((double) value * 3.20);
 				break;
 		}
