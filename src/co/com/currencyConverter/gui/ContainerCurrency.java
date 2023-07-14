@@ -9,6 +9,8 @@ import javax.swing.border.EmptyBorder;
 import co.com.currencyConverter.utils.currencyConverterOperations;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -19,6 +21,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Canvas;
 
 public class ContainerCurrency extends JFrame {
 
@@ -64,6 +67,7 @@ public class ContainerCurrency extends JFrame {
 		contentPane.add(result);
 
 		lblNewLabel_12 = new JLabel("Resultado:");
+		lblNewLabel_12.setFont(new Font("JetBrains Mono", Font.PLAIN, 11));
 		lblNewLabel_12.setForeground(Color.WHITE);
 		lblNewLabel_12.setBounds(44, 198, 112, 14);
 		contentPane.add(lblNewLabel_12);
@@ -71,9 +75,9 @@ public class ContainerCurrency extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("Conversor de monedas");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Arial Black", Font.PLAIN, 16));
+		lblNewLabel.setFont(new Font("JetBrains Mono Medium", Font.BOLD, 16));
 		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setBounds(10, 24, 305, 23);
+		lblNewLabel.setBounds(44, 29, 209, 23);
 		contentPane.add(lblNewLabel);
 		
 		fieldCurrencyValue = new JTextField();
@@ -82,22 +86,28 @@ public class ContainerCurrency extends JFrame {
 		fieldCurrencyValue.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("Valor a convertir:");
+		lblNewLabel_1.setFont(new Font("JetBrains Mono", Font.PLAIN, 11));
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_1.setBounds(44, 75, 112, 14);
+		lblNewLabel_1.setBounds(44, 75, 175, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		JButton btnConvert = new JButton("Convertir");
 		btnConvert.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				result.setText("");
+				try {
+					result.setText("");
+					
+					int indexOfValue = valueCurrency1.getSelectedIndex();
+					
+					currencyConverterOperations Currency = new currencyConverterOperations();
+					Currency.setValue(fieldCurrencyValue.getText());
+					resultOperations = Currency.convertCurrency(indexOfValue);
+					
+					result.setText(String.valueOf(resultOperations));
+				}catch(NumberFormatException ex) {
+					JOptionPane.showMessageDialog(null, "Put a value to convert...");
+				}
 				
-				int indexOfValue = valueCurrency1.getSelectedIndex();
-				
-				currencyConverterOperations Currency = new currencyConverterOperations();
-				Currency.setValue(fieldCurrencyValue.getText());
-				resultOperations = Currency.convertCurrency(indexOfValue);
-				
-				result.setText(String.valueOf(resultOperations));
 			}
 		});
 		btnConvert.setBounds(44, 164, 223, 23);
