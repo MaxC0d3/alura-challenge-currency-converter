@@ -12,8 +12,6 @@ public class currencyConverterOperations {
 	
 	
 	public int convertCurrency(int selected) {
-		
-		System.out.println(selected);
 			
 		result = 0;
 		
